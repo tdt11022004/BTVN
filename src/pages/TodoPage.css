@@ -1,0 +1,118 @@
+.todo-list { display: flex; flex-direction: column; gap: 16px; }
+
+.todo-task-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+  animation: slideUp 0.3s ease;
+}
+.todo-task-block:hover { border-color: var(--border-active); }
+
+.todo-task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+}
+.todo-task-header:hover { background: var(--bg-card-hover); }
+
+.todo-task-info { display: flex; flex-direction: column; gap: 4px; }
+.todo-task-subject { font-size: 0.72rem; font-weight: 600; color: var(--accent-blue-light); text-transform: uppercase; }
+.todo-task-name { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+
+.todo-task-progress-wrap { display: flex; align-items: center; gap: 12px; }
+.todo-progress-bar {
+  width: 120px; height: 5px;
+  background: rgba(148,163,184,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.todo-progress-fill {
+  height: 100%;
+  background: var(--gradient-green);
+  border-radius: 3px;
+  transition: width var(--transition-slow);
+}
+.todo-progress-text { font-size: 0.8rem; font-weight: 600; color: var(--accent-green); white-space: nowrap; }
+.todo-collapse-arrow { font-size: 0.7rem; color: var(--text-muted); transition: transform var(--transition-fast); }
+
+.todo-steps {
+  border-top: 1px solid var(--border-color);
+  padding: 12px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: slideUp 0.2s ease;
+}
+
+.todo-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+.todo-step:hover { background: var(--bg-secondary); }
+.todo-step--done .todo-step-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.todo-step-check {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+.todo-step-check:hover { transform: scale(1.2); }
+
+.todo-step-num { font-size: 0.8rem; color: var(--text-muted); min-width: 20px; }
+
+.todo-step-text { flex: 1; font-size: 0.9rem; color: var(--text-primary); }
+
+.todo-step-delete {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: all var(--transition-fast);
+}
+.todo-step:hover .todo-step-delete { opacity: 1; }
+.todo-step-delete:hover { background: rgba(239,68,68,0.15); color: var(--accent-red); }
+
+.todo-add-step {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-color);
+}
+.todo-add-step .form-input { font-size: 0.875rem; }
+
+@media (max-width: 768px) {
+  .todo-task-header { padding: 14px 14px; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .todo-task-progress-wrap { width: 100%; }
+  .todo-progress-bar { flex: 1; }
+  .todo-steps { padding: 10px 14px 14px; }
+  .todo-step { padding: 10px 8px; }
+  /* Always show delete on mobile */
+  .todo-step-delete { opacity: 1; }
+  .todo-add-step { flex-direction: column; gap: 8px; }
+  .todo-add-step .btn { width: 100%; justify-content: center; }
+}

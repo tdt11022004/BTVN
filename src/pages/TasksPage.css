@@ -1,0 +1,62 @@
+.tasks-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+}
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.filter-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  width: 90px;
+  flex-shrink: 0;
+}
+.filter-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+.filter-btn:hover {
+  border-color: var(--border-active);
+  color: var(--text-primary);
+}
+.filter-btn--active {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: white;
+}
+.filter-select {
+  max-width: 220px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .tasks-filters { padding: 12px 14px; gap: 10px; }
+  .filter-group { gap: 6px; }
+  .filter-label { font-size: 0.72rem; width: 70px; }
+  .filter-btn { padding: 5px 10px; font-size: 0.75rem; }
+  .tasks-grid { grid-template-columns: 1fr; gap: 12px; }
+}
