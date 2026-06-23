@@ -74,7 +74,21 @@
 }
 
 /* List */
-.import-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.import-list { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+  margin-bottom: 28px; 
+  max-height: 50vh; 
+  overflow-y: auto; 
+  padding-right: 8px; /* Space for scrollbar */
+}
+
+/* Custom scrollbar for import list */
+.import-list::-webkit-scrollbar { width: 6px; }
+.import-list::-webkit-scrollbar-track { background: var(--bg-primary); border-radius: 4px; }
+.import-list::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+.import-list::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
 
 .import-item {
   display: flex;
